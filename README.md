@@ -33,7 +33,6 @@ steamRoxa/
 ├── controller/
 ├── model/
 ├── repository/
-├── service/ (opcional)
 └── config/
 ```
 
@@ -63,7 +62,7 @@ steamRoxa/
 
 - Testes de unidade usando **JUnit 5** e **Mockito**
 - Cobertura mínima de 90% nas camadas de serviço e controller
-- Relatórios gerados com **JaCoCo**
+- Relatórios gerados com **JaCoCo** (copertura de testes)
 
 ---
 
@@ -112,24 +111,23 @@ http://localhost:8080/h2-console
 ```
 
 - JDBC URL: `jdbc:h2:mem:testdb`
-- Usuário: `RA`
-- Senha: 'Usuario@123'
+- Usuário: `usuario`
+- Senha: 'Senha@123'
 
 ---
 
 ## 👥 Equipe
 
 - Matheus Antunes RA: 208239
-- Bruno Sutil RA: 
+- Bruno Sutil RA: 078224
 - Nicolas Magalhães RA: 212907
-- 
+- João Vitor Macedo Ra: 208701
 
 ---
 
 ## 🔀 Git e Versionamento
 
 - Uso de branches para features e correções
-- Histórico de commits com mensagens descritivas
 - Pull Requests para integração
 
 ---
