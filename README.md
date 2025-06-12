@@ -13,7 +13,7 @@ Criar um microserviço para gerenciar uma biblioteca de jogos, com funcionalidad
 
 ## 🚀 Tecnologias Utilizadas
 
-- Java 17
+- Java 23
 - Spring Boot
 - Spring Web
 - Spring Data JPA
@@ -112,16 +112,16 @@ http://localhost:8080/h2-console
 ```
 
 - JDBC URL: `jdbc:h2:mem:testdb`
-- Usuário: `sa`
-- Senha: *(vazia)*
+- Usuário: `RA`
+- Senha: 'Usuario@123'
 
 ---
 
 ## 👥 Equipe
 
--  - backend, testes
--  - controller, validações
--  - modelagem, documentação
+- Matheus Antunes RA: 208239
+- Bruno Sutil RA: 
+- Nicolas Magalhães RA: 212907
 - 
 
 ---
