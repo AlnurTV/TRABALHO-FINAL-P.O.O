@@ -1,142 +1,117 @@
-# TRABALHO-FINAL-P.O.O
+🎮 SteamRoxa - Microserviço de Gerenciamento de Jogos
+📌 Descrição
+SteamRoxa é um microserviço desenvolvido com Spring Boot, cujo objetivo é gerenciar um catálogo de jogos digitais. Ele oferece uma API RESTful que permite cadastrar, consultar, atualizar e deletar jogos, além de aplicar filtros personalizados. Este projeto foi realizado como trabalho final da disciplina de Programação Orientada a Objetos.
 
+🛠️ Tecnologias e Ferramentas
+Java 17
 
-# 🎮 Steam Roxa - API de Gerenciamento de Jogos
+Spring Boot
 
-Projeto desenvolvido para a disciplina de Programação Orientada a Objetos, utilizando **Spring Boot** para criar um microserviço RESTful com persistência em banco de dados, documentação automática e testes unitários.
+Spring Data JPA
 
----
+Banco de Dados H2 (dev) / MySQL (prod)
 
-## 📌 Objetivo
+Swagger / Springdoc OpenAPI
 
-Criar um microserviço para gerenciar uma biblioteca de jogos, com funcionalidades para cadastrar, buscar, atualizar e excluir jogos.
+JUnit 5 & Mockito
 
----
+JaCoCo (cobertura de testes)
 
-## 🚀 Tecnologias Utilizadas
+Git & GitHub
 
-- Java 17
-- Spring Boot
-- Spring Web
-- Spring Data JPA
-- H2 Database (Desenvolvimento)
-- PostgreSQL ou MySQL (Produção - opcional)
-- Swagger / Springdoc OpenAPI
-- JUnit 5
-- Mockito
-- Maven
+🚀 Como Executar o Projeto
+Pré-requisitos
+Java 17+
 
----
+Maven 3.8+
 
-## 📁 Estrutura de Pacotes
+Docker (opcional)
 
-```
-steamRoxa/
-├── controller/
-├── model/
-├── repository/
-├── service/ (opcional)
-└── config/
-```
+Passos
+Clone o repositório
 
----
+bash
+Copiar
+Editar
+git clone https://github.com/seu-usuario/steamroxa.git
+cd steamroxa
+Executar com H2 (perfil default)
 
-## 📚 Funcionalidades da API
-
-| Método | Endpoint            | Descrição                            |
-|--------|---------------------|--------------------------------------|
-| POST   | `/games`            | Cadastrar um novo jogo               |
-| GET    | `/games`            | Listar todos os jogos                |
-| GET    | `/games/{id}`       | Buscar jogo por ID                   |
-| PUT    | `/games/{id}`       | Atualizar dados de um jogo           |
-| DELETE | `/games/{id}`       | Remover jogo do sistema              |
-| GET    | `/games/filter?name={nome}` | Filtrar jogos por nome (exemplo)   |
-
----
-
-## ✅ Validações
-
-- Campos obrigatórios validados com anotações como `@NotNull`, `@Size`, `@Min`, etc.
-- Tratamento de exceções personalizado (opcional).
-
----
-
-## 🧪 Testes
-
-- Testes de unidade usando **JUnit 5** e **Mockito**
-- Cobertura mínima de 90% nas camadas de serviço e controller
-- Relatórios gerados com **JaCoCo**
-
----
-
-## 📝 Documentação da API
-
-A documentação Swagger está disponível em:
-
-```
-http://localhost:8080/swagger-ui.html
-```
-
-Ou, se estiver usando Springdoc:
-
-```
-http://localhost:8080/swagger-ui/index.html
-```
-
----
-
-## ▶️ Como Executar
-
-### Pré-requisitos
-
-- Java 17+
-- Maven 3.8+
-- Git
-
-### Rodando localmente
-
-```bash
-git clone https://github.com/SEU_USUARIO/steamRoxa.git
-cd steamRoxa
+bash
+Copiar
+Editar
 ./mvnw spring-boot:run
-```
+Executar com MySQL (produção)
 
-A aplicação estará disponível em: `http://localhost:8080`
+Configure application-prod.properties
 
----
+Execute:
 
-## 🗃️ Banco de Dados
+bash
+Copiar
+Editar
+./mvnw spring-boot:run -Dspring-boot.run.profiles=prod
+Swagger
 
-Utiliza H2 para testes locais. A interface do console H2 pode ser acessada via:
+Acesse: http://localhost:8080/swagger-ui.html
 
-```
-http://localhost:8080/h2-console
-```
+🎯 Funcionalidades da API
+Verbo	Endpoint	Ação
+POST	/games	Cadastrar novo jogo
+GET	/games	Listar todos os jogos
+GET	/games/{id}	Buscar jogo por ID
+PUT	/games/{id}	Atualizar dados de um jogo
+DELETE	/games/{id}	Deletar jogo
+GET	/games/filter?genre={gênero}	Filtrar por gênero de jogo
 
-- JDBC URL: `jdbc:h2:mem:testdb`
-- Usuário: `sa`
-- Senha: *(vazia)*
+🧱 Entidade Principal: Game
+java
+Copiar
+Editar
+public class Game {
+    private Long id;
+    private String name;
+    private String genre;
+    private Double price;
+    private String platform;
+}
+Validações com anotações como @NotNull, @Size e @Positive garantem integridade dos dados.
 
----
+🧪 Testes
+Cobertura com JUnit 5 + Mockito
 
-## 👥 Equipe
+Testes em:
 
--  - backend, testes
--  - controller, validações
--  - modelagem, documentação
-- 
+GameService (mock de GameRepository)
 
----
+GameController (usando MockMvc)
 
-## 🔀 Git e Versionamento
+Cenários:
 
-- Uso de branches para features e correções
-- Histórico de commits com mensagens descritivas
-- Pull Requests para integração
+Criação e busca com sucesso
 
----
+Entidade não encontrada
 
-## 📄 Licença
+Dados inválidos
 
-Este projeto é acadêmico e não possui fins comerciais.
+Cobertura mínima: 90%+ (JaCoCo)
+
+🗂️ Estrutura de Pacotes
+arduino
+Copiar
+Editar
+projetoFinal.steamRoxa
+├── controller
+├── service
+├── model
+├── repository
+├── config
+Segue o padrão MVC, com injeção de dependência e boas práticas de POO.
+
+👥 Equipe
+Nome	Responsabilidades
+Nicolas Magalhães	Camada de serviço, testes
+Bruno Sutil	Controller, validações, documentação
+[Vago]	[Atribuição futura]
+[Vago]	[Atribuição futura]
 
